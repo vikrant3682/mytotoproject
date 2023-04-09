@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+
+    <title>Document</title>
+    <style>
+      .oneproductdata{
+        display: flex;
+        justify-content: space-around;
+      }
+      .allproduct{
+        display: flex;
+        flex-direction: column;
+      }
+      .container{
+        color: aliceblue;
+        background-color: blueviolet;
+        font-size: 20px;
+      }
+      .checkbox{
+        height: 20px;
+        width: 20px;
+      }
+      .emaildelete{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+      }
+    </style>
+</head>
+<body>
+    <script>
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET','/customerdata',true);
+      xhr.onload = function(){
+        let data = JSON.parse(this.response);
+        let newarr = [];
+        newarr = data;
+      
+        for(let i = 0;i<data.length;i++){
+             let container = document.getElementById('container');
+             let email = document.createElement('div');
+             email.innerHTML = data[i].email;
+             email.classList.add('email');
+             let firstContainer = document.createElement('div');
+             firstContainer.classList.add('emaildelete');
+             let wholeContainer = document.createElement('div');
+             let deletedata = document.createElement('i');
+             deletedata.classList.add('fa-solid');
+             deletedata.classList.add('fa-trash')
+             let hr = document.createElement('hr');
+           
+             let innercontainer = document.createElement('div');
+             innercontainer.classList.add('allproduct')
+             let datacontainer = [];
+             let name = [],price = [];
+             for(let m = 0;m<data[i].data.length;m++)
+             { 
+                  
+                  let checkbox = document.createElement('input');
+                  checkbox.type = 'checkbox'; 
+                  checkbox.classList.add('checkbox')             
+
+
+                  name[m] = document.createElement('div');
+                  name[m].style.width = '300px';
+                 name[m].innerText = data[i].data[m].name;
+
+                 price[m] = document.createElement('div');
+                 price[m].style.width = '300px';
+                 price[m].innerText = data[i].data[m].price
+                  datacontainer[m] = document.createElement('div');
+                 datacontainer[m].classList.add('oneproductdata');
+                 datacontainer[m].append(checkbox,name[m],price[m]);
+                 innercontainer.append(datacontainer[m]);
+
+             }
+             
+             firstContainer.append(email,deletedata);
+              wholeContainer.append(hr,firstContainer,innercontainer);
+              container.append(wholeContainer);
+         }
+         let alldelete = document.getElementsByClassName('fa-trash');
+         let deleteindb = document.getElementsByClassName('email');
+         for(let dl = 0;dl<alldelete.length;dl++){
+          alldelete[dl].onclick = function(){
+            let xhr2 = new XMLHttpRequest();
+            xhr2.open('POST','/delete?email='+deleteindb[dl].innerText,true);
+            xhr2.onload = function(){
+              alert(this.responseText);
+            }
+            xhr2.send();
+            (this.parentElement).parentElement.remove();
+          }
+         }
+
+      }
+      xhr.send();
+      
+    </script>
+    <div class="container" id="container">
+          
+    </div>
+</body>
+</html>
