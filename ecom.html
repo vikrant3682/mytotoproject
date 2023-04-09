@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="todo.css">
+    <title>todoapp</title>
+</head>
+<body>
+    <section class="navbar">
+        <div class="logo">LOGO</div>
+       
+        <div class="cartlogo" onclick="displaycart()">
+            <div id="q">0</div>
+            <i class="fa-solid fa-cart-shopping"></i>   
+        </div>
+        
+    </section>
+    <section class="item">
+        <div class="grid_item">
+            <img src="burger1.jpg" alt="image">
+            <div class="detail">
+                <div class="name" id="n0">Cheese Burger</div>
+                <div class="pricedetail">
+                    <div class="price" id="p0">40</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart" id="c1">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="pizza1.jpg" alt="image">
+            <div class="detail">
+                <div class="name" id="n1">work pizza</div>
+                <div class="pricedetail">
+                    <div class="price" id="p1">300</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="pizza2.jpg" alt="" style= "border-radius: 70px;">
+            <div class="detail">
+                <div class="name" id="n2">Veg pizza</div>
+                <div class="pricedetail">
+                    <div class="price" id="p2">250</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="pizza3.jpg" alt="">
+            <div class="detail">
+                <div class="name" id="n3">Vag Small pizza</div>
+                <div class="pricedetail">
+                    <div class="price" id="p3">200</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="pizza4.jpg" alt="">
+            <div class="detail">
+                <div class="name" id="n4">Peprogi pizza</div>
+                <div class="pricedetail">
+                    <div class="price" id="p4">90</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="pizza5.jpg" alt="">
+            <div class="detail">
+                <div class="name" id="n5">Pepperroni pizza</div>
+                <div class="pricedetail">
+                    <div class="price" id="p5">150</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="burger2.jpg" alt="">
+            <div class="detail">
+                <div class="name" id="n6">Simple Burger</div>
+                <div class="pricedetail">
+                    <div class="price" id="p6">60</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="pizza1.jpg" alt="">
+            <div class="detail">
+                <div class="name" id="n7">Work pizza</div>
+                <div class="pricedetail">
+                    <div class="price" id="p7">300</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        <div class="grid_item">
+            <img src="pizza3.jpg" alt="">
+            <div class="detail">
+                <div class="name" id="n8">Veg small pizza</div>
+                <div class="pricedetail">
+                    <div class="price" id="p8">250</div>
+                    <div class="currency">INR</div>
+                </div>
+                
+            </div>
+            <button class="cart">Add to Cart</button>
+        </div>
+        
+    </section>
+    <center>
+        <section class="cartdetail" id="cd">
+            <button class="order" id="od">Order</button>  
+            <ul class="carttodo" id="myorder">
+    
+            </ul> 
+           
+        </section>
+    </center>
+    <div class="getdata" id='data'>getdata</div>
+    <script src="todo.js"></script>
+</body>
+</html>
